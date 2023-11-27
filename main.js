@@ -1,4 +1,12 @@
 /**
+ * Change to your props if needed
+ */
+const properties = {
+  region: 'ru', /** https://developers.google.com/apps-script/reference/maps/geocoder#setRegion(String) */
+  language: 'ru', /** https://developers.google.com/apps-script/reference/maps/geocoder#setLanguage(String) */
+}
+
+/**
  * Simple class to create WEBAPP response
  */
 class Response {
@@ -23,8 +31,8 @@ function doPost(e){
 
     const navi = Maps //geocoding address
         .newGeocoder()
-        .setRegion('ru')
-        .setLanguage('ru')
+        .setRegion(properties.region)
+        .setLanguage(properties.language)
         .geocode(address);
 
     response.setResult(navi.results) //set data to response
