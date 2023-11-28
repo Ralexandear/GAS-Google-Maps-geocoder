@@ -62,16 +62,7 @@ async function geocoder(address) {
         )
 
         const response = await fetch(requestOptions)
-        if (!response.ok) {
-            return console.error('Web app error', response.result)
-        }
-
         const geodata = await response.json() // recieving JSON from response
-        const location = geodata.result[0]?.geometry?.location // Recieving geodata
-
-        if (!location) {
-            throw Error('Location data was not found')
-        }
 
         console.log('Geodata is', geodata)
         return { geodata }
